@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  ISOBATH 等深線 — ishigaki ocean institute
+  reef · the map of sekisei lagoon, made of numbers
+
+  how to draw an isobath: sound, join, read.
+  then the six places we go back to, the tape on the bottom,
+  and the one night a year the reef lets go.
+
+  concept, design & code by ghostly.grl ♥
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REEF — ISOBATH 等深線 · the map of sekisei lagoon</title>
+<meta name="description" content="the map of sekisei lagoon, japan's largest coral reef, drawn by hand one sounding at a time. six survey sites, one fifty-metre tape, one night of spawning.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Big+Shoulders+Stencil+Display:wght@700;800;900&family=Silkscreen&family=Noto+Sans+JP:wght@400;500;700;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/reef.css">
+</head>
+<body class="reef">
+
+  <!-- loader: a sounding. the line goes down until it touches the bottom -->
+  <div class="loader" aria-hidden="true">
+    <svg class="ld-lines" viewBox="-300 -300 600 600"></svg>
+    <p class="ld-k mono">sounding · 測深</p>
+    <p class="ld-n mono"><b>000.0</b> m</p>
+    <p class="ld-c mono">24°20′N 124°09′E · sekisei lagoon</p>
+    <div class="ld-strip"><span>ISOBATH ── DOC 02 ── THE REEF ── 石西礁湖 ── SEKISEI LAGOON ── 400 KM² ── ISOBATH ── DOC 02 ── THE REEF ── 石西礁湖 ──</span></div>
+  </div>
+
+  <div class="cur" aria-hidden="true"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="9"/><path d="M15 0v9M15 21v9M0 15h9M21 15h9"/></svg><span></span></div>
+
+  <!-- fixed chrome -->
+  <a class="tag" href="index.html" data-cur="surface">
+    <span class="tag-s">ISOBATH<br>START</span><b>24°20′N</b>
+  </a>
+  <nav class="nav" aria-label="main">
+    <a href="index.html" data-cur="home">HOME</a>
+    <a href="reef.html" data-cur="the map">REEF</a>
+    <a href="census.html" data-cur="count">CENSUS</a>
+    <a href="logbook.html" data-cur="read">LOGBOOK</a>
+    <a href="dive.html" data-cur="come down">DIVE</a>
+    <a href="visit.html" data-cur="find us">VISIT</a>
+  </nav>
+  <button class="mbtn mono" aria-label="menu">MENU</button>
+  <p class="side vt mono" aria-hidden="true"><b>石西礁湖</b> REEF · THE MAP OF SEKISEI LAGOON</p>
+  <div class="gauge mono" aria-hidden="true">
+    <span class="g-i"><i>01</i><i>05</i></span>
+    <span class="g-bar"><i></i></span>
+    <b class="g-d">−00.0</b><em>m</em>
+  </div>
+
+  <main>
+
+    <!-- ═════════ 01 · THE MAP · how an isobath is drawn (pinned) ═════════ -->
+    <section class="map" id="map" data-sec="01">
+      <div class="m-stage">
+        <canvas class="m-cv" data-cur="sound here" aria-label="a map of sekisei lagoon. move over it to read the depth, click to take your own sounding."></canvas>
+        <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+        <div class="m-top mono">
+          <span class="on">00 THE MAP</span><span>01 SOUND</span><span>02 JOIN</span><span>03 READ</span>
+        </div>
+
+        <div class="m-hero">
+        <h1 class="m-title" aria-label="reef">
+          <span class="w">REEF</span>
+          <span class="jp m-jp">石西礁湖</span>
+        </h1>
+        <p class="m-sub">the map of sekisei lagoon, japan’s largest coral reef. we didn’t print it. we drew it, one number at a time.</p>
+        <div class="m-facts mono">
+          <p><b>400</b> km² of reef</p>
+          <p><b>20 × 15</b> km, ishigaki to iriomote</p>
+          <p><b>360+</b> kinds of coral</p>
+        </div>
+        </div>
+
+        <div class="m-left">
+          <p class="kick mono m-ord">FIRST</p>
+          <p class="m-txt">a weight on a line, dropped from the boat. when it touches the bottom we write the number down.</p>
+        </div>
+        <div class="m-key mono" aria-hidden="true">
+          <p class="m-key-t">ISOBATHS</p>
+          <p><i style="--o:1"></i>0 m · the coast</p>
+          <p><i style="--o:.85"></i>−2 m · the moat</p>
+          <p><i style="--o:.7"></i>−5 m · the crest</p>
+          <p><i style="--o:.55"></i>−10 m · the slope</p>
+          <p><i style="--o:.4"></i>−20 m · the wall</p>
+          <p><i style="--o:.25"></i>−30 m · the blue</p>
+        </div>
+        <p class="m-hint mono"><b>0</b> soundings by us · <b class="m-yours">0</b> by you · click the water to add yours</p>
+        <p class="m-ll mono" aria-hidden="true"></p>
+      </div>
+    </section>
+
+    <!-- ═════════ 02 · SITES · the six places we go back to ═════════ -->
+    <section class="sites" id="sites" data-sec="02">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="st-head">
+        <p class="kick mono" data-scramble>SIX PLACES</p>
+        <h2 class="st-t">we go back to the same six places,<br>so we can see what changed.</h2>
+        <p class="st-n mono">same tape, same depth, same week of the year · since 2008</p>
+      </div>
+      <ol class="st-list">
+        <li class="st" data-img="REEF/shiraho.jpg" data-cur="shiraho">
+          <span class="st-i mono">01</span><span class="st-name">SHIRAHO</span><span class="st-jp jp">白保</span>
+          <span class="st-d mono">−2 → −8 m</span><span class="st-w mono">blue coral, heliopora coerulea</span>
+          <div class="strip st-strip" aria-hidden="true"><div class="row" data-mq="-60"><span>SHIRAHO 白保   ONE OF THE LARGEST BLUE CORAL COLONIES IN THE NORTH PACIFIC   −2 → −8 M   TRANSECT 07   </span></div></div>
+        </li>
+        <li class="st" data-img="REEF/kabira.jpg" data-cur="kabira">
+          <span class="st-i mono">02</span><span class="st-name">KABIRA ISHIZAKI</span><span class="st-jp jp">川平石崎</span>
+          <span class="st-d mono">−10 → −18 m</span><span class="st-w mono">the manta cleaning station</span>
+          <div class="strip st-strip" aria-hidden="true"><div class="row" data-mq="-60"><span>KABIRA ISHIZAKI 川平石崎   MANTAS WAIT THEIR TURN TO BE CLEANED   SEP–NOV   −14 M   </span></div></div>
+        </li>
+        <li class="st" data-img="REEF/yonara.jpg" data-cur="yonara">
+          <span class="st-i mono">03</span><span class="st-name">YONARA CHANNEL</span><span class="st-jp jp">ヨナラ水道</span>
+          <span class="st-d mono">−8 → −20 m</span><span class="st-w mono">current between kohama and iriomote</span>
+          <div class="strip st-strip" aria-hidden="true"><div class="row" data-mq="-60"><span>YONARA 水道   THE TIDE RUNS THROUGH AT 2 KNOTS   MANTA WAY   DRIFT DIVE ONLY   </span></div></div>
+        </li>
+        <li class="st" data-img="REEF/lagoon.jpg" data-cur="the lagoon">
+          <span class="st-i mono">04</span><span class="st-name">SEKISEI CENTRE</span><span class="st-jp jp">石西礁湖</span>
+          <span class="st-d mono">−1 → −5 m</span><span class="st-w mono">table corals, the shallow middle</span>
+          <div class="strip st-strip" aria-hidden="true"><div class="row" data-mq="-60"><span>SEKISEI CENTRE   TABLE ACROPORA   LOST 70% IN 2016   COMING BACK   −3 M   </span></div></div>
+        </li>
+        <li class="st" data-img="REEF/kuroshima.jpg" data-cur="kuroshima">
+          <span class="st-i mono">05</span><span class="st-name">KUROSHIMA ROAD</span><span class="st-jp jp">黒島</span>
+          <span class="st-d mono">−5 → −15 m</span><span class="st-w mono">green turtles, sea grass</span>
+          <div class="strip st-strip" aria-hidden="true"><div class="row" data-mq="-60"><span>KUROSHIMA 黒島   TURTLES GRAZE THE SEA GRASS   COUNT 41   −9 M   </span></div></div>
+        </li>
+        <li class="st" data-img="REEF/nagura.jpg" data-cur="nagura">
+          <span class="st-i mono">06</span><span class="st-name">NAGURA AMPARU</span><span class="st-jp jp">名蔵アンパル</span>
+          <span class="st-d mono">0 → −1 m</span><span class="st-w mono">mangroves, where the fish are born</span>
+          <div class="strip st-strip" aria-hidden="true"><div class="row" data-mq="-60"><span>NAGURA 名蔵   MANGROVE   THE NURSERY OF THE REEF   RAMSAR SITE   0 M   </span></div></div>
+        </li>
+      </ol>
+      <div class="drop st-drop" aria-hidden="true"><div class="st-ph"></div><i class="shine"></i></div>
+      <!-- the photos live here as slots too, so the README can list them and they preload -->
+      <div class="st-slots" aria-hidden="true">
+        <div class="slot" data-img="REEF/shiraho.jpg" data-note="blue coral colony, shallow, sunlight"></div>
+        <div class="slot" data-img="REEF/kabira.jpg" data-note="manta ray from below or above, blue water"></div>
+        <div class="slot" data-img="REEF/yonara.jpg" data-note="current over the reef, a channel, blue"></div>
+        <div class="slot" data-img="REEF/lagoon.jpg" data-note="table corals in very shallow clear water"></div>
+        <div class="slot" data-img="REEF/kuroshima.jpg" data-note="a green turtle over sea grass"></div>
+        <div class="slot" data-img="REEF/nagura.jpg" data-note="mangrove roots, half above, half under water"></div>
+      </div>
+    </section>
+
+    <!-- ═════════ 03 · TRANSECT · a tape on the bottom ═════════ -->
+    <section class="tr" id="transect" data-sec="03">
+      <div class="tr-head">
+        <p class="kick mono" data-scramble>POINT INTERCEPT</p>
+        <h2 class="tr-t">fifty metres of tape.<br>a point every fifty centimetres.</h2>
+        <p class="tr-s">we lay a tape on the bottom and swim along it. at every mark we write down what is under the point: coral, white coral, dead coral, sand, rubble. one hundred points, one line of the reef. this one is transect 07, at shiraho.</p>
+      </div>
+      <div class="slot tr-ph" data-tone="sea" data-img="REEF/transect.jpg" data-note="a diver with a measuring tape over the reef, survey"></div>
+      <div class="tr-years mono" role="tablist" aria-label="year">
+        <button class="on" data-y="2008" data-cur="2008">2008</button><button data-y="2016" data-cur="2016">2016</button><button data-y="2024" data-cur="2024">2024</button>
+      </div>
+      <div class="tr-bar" aria-hidden="true"></div>
+      <div class="tr-tape mono" aria-hidden="true"></div>
+      <div class="tr-key mono">
+        <p data-k="0"><i></i>live coral <b>0</b>%</p>
+        <p data-k="1"><i></i>bleached <b>0</b>%</p>
+        <p data-k="2"><i></i>dead, with algae <b>0</b>%</p>
+        <p data-k="3"><i></i>sand <b>0</b>%</p>
+        <p data-k="4"><i></i>rubble <b>0</b>%</p>
+      </div>
+      <p class="tr-note mono"></p>
+    </section>
+
+    <!-- ═════════ 04 · SPAWN · the night the reef lets go ═════════ -->
+    <section class="spawn" id="spawn" data-sec="04" data-blue>
+      <canvas class="sw-cv" data-cur="hold" aria-hidden="true"></canvas>
+      <p class="sw-k mono" data-scramble>ONCE A YEAR</p>
+      <h2 class="sw-t">a few nights after the full moon of may, the whole reef lets go at once.</h2>
+      <p class="sw-s">every coral releases its eggs in the same hour, little pink bundles that rise to the surface. we call it snow falling up. press and hold to let go.</p>
+      <div class="sw-next mono">
+        <p>NEXT EXPECTED</p>
+        <b class="sw-date">—</b>
+        <p class="sw-why"></p>
+      </div>
+      <p class="sw-c mono"><b>0000</b> bundles let go</p>
+    </section>
+
+    <!-- ═════════ 05 · NEXT · count them ═════════ -->
+    <section class="next" id="next" data-sec="05">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="nx-k mono">NEXT PAGE</p>
+      <a class="nx-t" href="census.html" data-cur="count">now count<br>what lives there. <b>→</b></a>
+      <div class="strip nx-strip" aria-hidden="true">
+        <div class="row" data-mq="40"><span>CENSUS   №(03)   1,862 FISH ON ONE LINE   TWO PEOPLE   TWO PENCILS   ISOBATH   石垣   </span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <div class="ft-top mono"><span>©ISOBATH</span><span>ISHIGAKI OCEAN INSTITUTE 2/6</span></div>
+    <div class="ft-mid">
+      <p class="ft-big">ISOBATH<span class="jp">等深線</span></p>
+      <p class="ft-poem jp" aria-hidden="true"><span>海</span><span>は</span><span>線</span><span>で</span><span>で</span><span>き</span><span>て</span><span>い</span><span>る</span></p>
+      <p class="ft-tr mono">the sea is made of lines.</p>
+    </div>
+    <div class="ft-cols mono">
+      <div><b>(01) find us</b><p>白保 shiraho, ishigaki-shi<br>okinawa, japan<br>24°20′N 124°09′E</p></div>
+      <div><b>(02) open</b><p>tue–sun · 09:00–17:00<br>closed when the sea is closed</p></div>
+      <div><b>(03) write</b><p>hello@isobath.jp<br>@isobath.ishigaki</p></div>
+      <div><b>(04) pages</b><p><a href="index.html">home</a> · <a href="census.html">census</a> · <a href="logbook.html">logbook</a><br><a href="dive.html">dive</a> · <a href="visit.html">visit</a></p></div>
+    </div>
+    <div class="ft-bot mono"><span>LUCKILY<br>THE SEA IS STILL HERE · ©2026 ISOBATH. all lines reserved.</span></div>
+    <p class="ft-sign">ghostly.grl <i>♥</i></p>
+  </footer>
+
+  <div class="toast mono" aria-live="polite"></div>
+  <div class="flood" aria-hidden="true"><p>you went too deep.<br><span class="mono">surfacing · <b>3</b></span></p></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/reef.js"></script>
+</body>
+</html>
+<!--
+         0 ·  1.2   ·  3.4  ·   8.1
+       ·  ─────────────────────    ·          /\_/\
+     2.0  ╱   ─────────────   ╲  12.6        ( o.o )   the cat reads the map
+         │   ╱  ───────  ╲    │              > ^ <    upside down.
+     4.4 │  │   −20 m   │    │ 19.8         (")_(")
+          ╲  ╲─────────╱    ╱
+       ·    ───────────────   ·  31.0
+
+   ┌─┐┬ ┬┌─┐┌─┐┌┬┐┬ ┬ ┬  ┌─┐┬─┐┬
+   │ ┬├─┤│ │└─┐ │ │ └┬┘  │ ┬├┬┘│
+   └─┘┴ ┴└─┘└─┘ ┴ ┴─┘┴ o └─┘┴└─┴─┘ ♥
+
+   ISOBATH 等深線 · reef · the map is made of numbers.
+-->

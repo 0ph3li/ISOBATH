@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  ISOBATH 等深線 — ishigaki ocean institute
+  logbook · every dive of the year, open to anyone
+
+  the year as 365 squares. open a day and read its page: where,
+  how deep, how long, what we saw. the water temperature, and the
+  week it went over thirty. then leave a line of your own.
+
+  concept, design & code by ghostly.grl ♥
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LOGBOOK — ISOBATH 等深線 · every dive of the year</title>
+<meta name="description" content="the logbook of isobath, ishigaki ocean institute: every dive of 2026, day by day, open to anyone. depth, time, water, and one line about what we saw.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Big+Shoulders+Stencil+Display:wght@700;800;900&family=Silkscreen&family=Noto+Sans+JP:wght@400;500;700;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/logbook.css">
+</head>
+<body class="logbook-p">
+
+  <!-- loader: a sounding. the line goes down until it touches the bottom -->
+  <div class="loader" aria-hidden="true">
+    <svg class="ld-lines" viewBox="-300 -300 600 600"></svg>
+    <p class="ld-k mono">sounding · 測深</p>
+    <p class="ld-n mono"><b>000.0</b> m</p>
+    <p class="ld-c mono">24°20′N 124°09′E · sekisei lagoon</p>
+    <div class="ld-strip"><span>ISOBATH ── DOC 04 ── LOGBOOK ── 航海日誌 ── 2026 ── OPEN TO ANYONE ── ISOBATH ── DOC 04 ── LOGBOOK ── 航海日誌 ──</span></div>
+  </div>
+
+  <div class="cur" aria-hidden="true"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="9"/><path d="M15 0v9M15 21v9M0 15h9M21 15h9"/></svg><span></span></div>
+
+  <!-- fixed chrome -->
+  <a class="tag" href="index.html" data-cur="surface">
+    <span class="tag-s">ISOBATH<br>START</span><b>24°20′N</b>
+  </a>
+  <nav class="nav" aria-label="main">
+    <a href="index.html" data-cur="home">HOME</a>
+    <a href="reef.html" data-cur="the map">REEF</a>
+    <a href="census.html" data-cur="count">CENSUS</a>
+    <a href="logbook.html" data-cur="read">LOGBOOK</a>
+    <a href="dive.html" data-cur="come down">DIVE</a>
+    <a href="visit.html" data-cur="find us">VISIT</a>
+  </nav>
+  <button class="mbtn mono" aria-label="menu">MENU</button>
+  <p class="side vt mono" aria-hidden="true"><b>航海日誌</b> LOGBOOK · EVERY DIVE OF 2026</p>
+  <div class="gauge mono" aria-hidden="true">
+    <span class="g-i"><i>01</i><i>05</i></span>
+    <span class="g-bar"><i></i></span>
+    <b class="g-d">−00.0</b><em>m</em>
+  </div>
+
+  <main>
+
+    <!-- ═════════ 01 · THE YEAR · 365 squares ═════════ -->
+    <section class="yr" id="year" data-sec="01">
+      <div class="yr-top">
+        <h1 class="yr-t pix" aria-label="logbook 2026"><span class="w">LOGBOOK</span><em>2026</em></h1>
+        <div class="yr-n mono">
+          <p><b class="pix" data-k="dives">0</b>dives</p>
+          <p><b class="pix" data-k="hours">0</b>hours under</p>
+          <p><b class="pix" data-k="closed">0</b>days the sea was closed</p>
+        </div>
+        <p class="yr-s">every dive we made this year, one square a day. it’s open to anyone: the numbers are the same ones we send to the ministry. move over a day to read its line, click it to open the page.</p>
+      </div>
+      <div class="yr-cal" data-cur="open a day">
+        <div class="yr-m mono" aria-hidden="true"></div>
+        <div class="yr-d mono" aria-hidden="true"><span>tue</span><span></span><span>thu</span><span></span><span>sat</span><span></span><span>mon</span></div>
+        <div class="yr-g" role="grid" aria-label="2026, one square per day"></div>
+      </div>
+      <div class="yr-key mono">
+        <p><i class="k-dive"></i>we dived</p>
+        <p><i class="k-deep"></i>deeper than 20 m</p>
+        <p><i class="k-night"></i>night dive</p>
+        <p><i class="k-closed"></i>sea closed (typhoon)</p>
+        <p><i class="k-off"></i>monday, we rest</p>
+        <p><i class="k-future"></i>not yet</p>
+      </div>
+      <div class="yr-line mono" aria-live="polite"><b>—</b><span>move over a day</span></div>
+    </section>
+
+    <!-- ═════════ 02 · ONE PAGE · the entry ═════════ -->
+    <section class="pg" id="page" data-sec="02">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="pg-nav mono">
+        <button class="pg-prev" data-cur="the day before">← previous dive</button>
+        <p class="pg-no">ENTRY №<b>000</b></p>
+        <button class="pg-next" data-cur="the day after">next dive →</button>
+      </div>
+      <article class="sheet mono">
+        <header class="sh-h">
+          <p class="sh-date pix">—</p>
+          <p class="sh-site">—</p>
+        </header>
+        <dl class="sh-f">
+          <div><dt>in</dt><dd data-f="in">—</dd></div>
+          <div><dt>max depth</dt><dd data-f="depth">—</dd></div>
+          <div><dt>bottom time</dt><dd data-f="time">—</dd></div>
+          <div><dt>visibility</dt><dd data-f="vis">—</dd></div>
+          <div><dt>water</dt><dd data-f="temp">—</dd></div>
+          <div><dt>current</dt><dd data-f="cur">—</dd></div>
+          <div><dt>team</dt><dd data-f="team">—</dd></div>
+          <div><dt>task</dt><dd data-f="task">—</dd></div>
+        </dl>
+        <p class="sh-note">—</p>
+        <p class="sh-sig">signed <span>—</span></p>
+      </article>
+      <div class="pg-right">
+        <div class="slot pg-ph" data-tone="sea" data-img="LOGBOOK/l1.jpg" data-note="a photo from the dive"></div>
+        <div class="prof">
+          <p class="prof-t mono">DIVE PROFILE · depth over time</p>
+          <svg class="prof-svg" viewBox="0 0 600 260" preserveAspectRatio="none" aria-label="dive profile"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 03 · WATER · the year in degrees ═════════ -->
+    <section class="wt" id="water" data-sec="03">
+      <div class="wt-head">
+        <p class="kick mono" data-scramble>WATER TEMPERATURE · −5 M</p>
+        <h2 class="wt-t">coral likes it warm.<br>not this warm.</h2>
+        <p class="wt-s">above thirty degrees for more than a week, the coral starts to let go of the algae that feed it and give it colour. this year it happened in august, for <b class="wt-days">0</b> days.</p>
+      </div>
+      <div class="wt-chart" data-cur="read the water">
+        <svg class="wt-svg" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-label="water temperature at five metres, 2026"></svg>
+        <div class="wt-x mono" aria-hidden="true"></div>
+        <p class="wt-read mono" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ═════════ 04 · LINES · write in the logbook ═════════ -->
+    <section class="lines" id="lines" data-sec="04" data-blue>
+      <div class="ln-left">
+        <p class="kick mono" data-scramble>LEAVE A LINE</p>
+        <h2 class="ln-t">the last page is for you.</h2>
+        <p class="ln-s">anyone who comes on the boat writes one line in the back of the logbook. you don’t have to have been on the boat.</p>
+        <form class="ln-f mono" autocomplete="off">
+          <label>name <input class="ln-name" maxlength="24" placeholder="or leave it empty"></label>
+          <label>your line <textarea class="ln-txt" maxlength="140" rows="3" placeholder="what did you see?" required></textarea></label>
+          <p class="ln-cnt"><b>0</b>/140 · it stays in this browser, nobody else reads it</p>
+          <button class="btn ln-go" type="submit" data-magnetic data-cur="write it in"><span>write it in</span><b>↓</b></button>
+        </form>
+      </div>
+      <ol class="ln-list mono" reversed></ol>
+    </section>
+
+    <!-- ═════════ 05 · NEXT · come down ═════════ -->
+    <section class="next" id="next" data-sec="05">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="nx-k mono">NEXT PAGE</p>
+      <a class="nx-t" href="dive.html" data-cur="come down">or come and<br>write a page. <b>→</b></a>
+      <div class="strip nx-strip" aria-hidden="true">
+        <div class="row" data-mq="40"><span>DIVE   №(05)   EVERY SATURDAY   07:30 SHIRAHO PORT   2 PLACES   WE LEND THE SLATE   ISOBATH   石垣   </span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <div class="ft-top mono"><span>©ISOBATH</span><span>ISHIGAKI OCEAN INSTITUTE 4/6</span></div>
+    <div class="ft-mid">
+      <p class="ft-big">ISOBATH<span class="jp">等深線</span></p>
+      <p class="ft-poem jp" aria-hidden="true"><span>海</span><span>は</span><span>線</span><span>で</span><span>で</span><span>き</span><span>て</span><span>い</span><span>る</span></p>
+      <p class="ft-tr mono">the sea is made of lines.</p>
+    </div>
+    <div class="ft-cols mono">
+      <div><b>(01) find us</b><p>白保 shiraho, ishigaki-shi<br>okinawa, japan<br>24°20′N 124°09′E</p></div>
+      <div><b>(02) open</b><p>tue–sun · 09:00–17:00<br>closed when the sea is closed</p></div>
+      <div><b>(03) write</b><p>hello@isobath.jp<br>@isobath.ishigaki</p></div>
+      <div><b>(04) pages</b><p><a href="index.html">home</a> · <a href="reef.html">reef</a> · <a href="census.html">census</a><br><a href="dive.html">dive</a> · <a href="visit.html">visit</a></p></div>
+    </div>
+    <div class="ft-bot mono"><span>LUCKILY<br>THE SEA IS STILL HERE · ©2026 ISOBATH. all lines reserved.</span></div>
+    <p class="ft-sign">ghostly.grl <i>♥</i></p>
+  </footer>
+
+  <div class="toast mono" aria-live="polite"></div>
+  <div class="flood" aria-hidden="true"><p>you went too deep.<br><span class="mono">surfacing · <b>3</b></span></p></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/logbook.js"></script>
+</body>
+</html>
+<!--
+   ┌─────────────────────────────┐
+   │ 2026.05.06  SHIRAHO  −12 m  │        /\_/\
+   │ in 21:40   48 min   29.1°C  │       ( -.- )   the cat signs
+   │ the reef let go. snow, up.  │        > ^ <    every page.
+   └─────────────────────────────┘       (")_(")
+
+   ┌─┐┬ ┬┌─┐┌─┐┌┬┐┬ ┬ ┬  ┌─┐┬─┐┬
+   │ ┬├─┤│ │└─┐ │ │ └┬┘  │ ┬├┬┘│
+   └─┘┴ ┴└─┘└─┘ ┴ ┴─┘┴ o └─┘┴└─┴─┘ ♥
+
+   ISOBATH 等深線 · logbook · open to anyone.
+-->

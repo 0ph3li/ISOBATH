@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  ISOBATH 等深線 — ishigaki ocean institute
+  census · every fish gets a number
+
+  guess the school, then count it. swim the belt: fifty metres long,
+  five metres wide, only what is inside counts. then the eight fish
+  that tell us how the reef is doing.
+
+  concept, design & code by ghostly.grl ♥
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CENSUS — ISOBATH 等深線 · every fish gets a number</title>
+<meta name="description" content="how we count the fish of sekisei lagoon: a belt fifty metres long and five metres wide, two people, two pencils. and the eight fish that tell us how the reef is doing.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Big+Shoulders+Stencil+Display:wght@700;800;900&family=Silkscreen&family=Noto+Sans+JP:wght@400;500;700;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/census.css">
+</head>
+<body class="census-p">
+
+  <!-- loader: a sounding. the line goes down until it touches the bottom -->
+  <div class="loader" aria-hidden="true">
+    <svg class="ld-lines" viewBox="-300 -300 600 600"></svg>
+    <p class="ld-k mono">sounding · 測深</p>
+    <p class="ld-n mono"><b>000.0</b> m</p>
+    <p class="ld-c mono">24°20′N 124°09′E · sekisei lagoon</p>
+    <div class="ld-strip"><span>ISOBATH ── DOC 03 ── CENSUS ── 魚類調査 ── EVERY FISH GETS A NUMBER ── ISOBATH ── DOC 03 ── CENSUS ── 魚類調査 ──</span></div>
+  </div>
+
+  <div class="cur" aria-hidden="true"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="9"/><path d="M15 0v9M15 21v9M0 15h9M21 15h9"/></svg><span></span></div>
+
+  <!-- fixed chrome -->
+  <a class="tag" href="index.html" data-cur="surface">
+    <span class="tag-s">ISOBATH<br>START</span><b>24°20′N</b>
+  </a>
+  <nav class="nav" aria-label="main">
+    <a href="index.html" data-cur="home">HOME</a>
+    <a href="reef.html" data-cur="the map">REEF</a>
+    <a href="census.html" data-cur="count">CENSUS</a>
+    <a href="logbook.html" data-cur="read">LOGBOOK</a>
+    <a href="dive.html" data-cur="come down">DIVE</a>
+    <a href="visit.html" data-cur="find us">VISIT</a>
+  </nav>
+  <button class="mbtn mono" aria-label="menu">MENU</button>
+  <p class="side vt mono" aria-hidden="true"><b>魚類調査</b> CENSUS · EVERY FISH GETS A NUMBER</p>
+  <div class="gauge mono" aria-hidden="true">
+    <span class="g-i"><i>01</i><i>04</i></span>
+    <span class="g-bar"><i></i></span>
+    <b class="g-d">−00.0</b><em>m</em>
+  </div>
+
+  <main>
+
+    <!-- ═════════ 01 · HOW MANY · guess the school, then count it ═════════ -->
+    <section class="hm" id="how-many" data-sec="01">
+      <canvas class="hm-cv" aria-hidden="true"></canvas>
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hm-note">
+        <p class="kick mono" data-scramble>FIRST, GUESS</p>
+        <p>before we teach anyone to count, we ask them to guess. almost everyone guesses too few.</p>
+      </div>
+      <h1 class="hm-title" aria-label="count">
+        <span class="w">COUNT</span>
+        <span class="jp hm-jp">魚類調査</span>
+      </h1>
+
+      <div class="hm-box mono" data-cur="guess">
+        <p class="hm-q">HOW MANY FISH?</p>
+        <div class="hm-in">
+          <button class="hm-m" aria-label="fewer" data-cur="fewer">−</button>
+          <input class="pix hm-g" type="number" inputmode="numeric" min="0" max="999" value="60" aria-label="your guess">
+          <button class="hm-p" aria-label="more" data-cur="more">+</button>
+        </div>
+        <button class="btn hm-go" data-magnetic data-cur="count them"><span>count them</span><b>↓</b></button>
+        <p class="hm-r" aria-live="polite">look for three seconds. then guess.</p>
+      </div>
+      <p class="hm-avg mono"></p>
+    </section>
+
+    <!-- ═════════ 02 · THE BELT · fifty by five (pinned) ═════════ -->
+    <section class="belt" id="belt" data-sec="02">
+      <div class="bt-stage">
+        <canvas class="bt-cv" aria-hidden="true"></canvas>
+        <div class="bt-head">
+          <p class="kick mono" data-scramble>THE BELT</p>
+          <h2 class="bt-t">fifty metres long,<br>five metres wide.</h2>
+          <p class="bt-s">we swim along the tape, slowly, always at the same speed. only the fish inside the belt count, two and a half metres each side. the ones outside are somebody else’s.</p>
+        </div>
+        <div class="slate mono" aria-label="the slate">
+          <p class="sl-h">SLATE · T07 · SHIRAHO · 09:40</p>
+          <ul class="sl-rows"></ul>
+          <p class="sl-tot">TOTAL <b>0</b></p>
+          <p class="sl-pen">pencil on white plastic. it writes underwater.</p>
+        </div>
+        <div class="bt-tape mono" aria-hidden="true"><i class="bt-you">you · 0.0 m</i></div>
+      </div>
+    </section>
+
+    <!-- ═════════ 03 · WHO WE COUNT · eight that tell us ═════════ -->
+    <section class="who" id="who" data-sec="03">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="wh-head">
+        <p class="kick mono" data-scramble>INDICATOR SPECIES</p>
+        <h2 class="wh-t">we count everything.<br>but eight of them tell us<br>how the reef is doing.</h2>
+        <p class="wh-s mono">hover a card: the dots become the fish · numbers are one belt, may 2026, against may 2008</p>
+      </div>
+      <div class="wh-grid"></div>
+    </section>
+
+    <!-- ═════════ 04 · NEXT · read the logbook ═════════ -->
+    <section class="next" id="next" data-sec="04">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="nx-k mono">NEXT PAGE</p>
+      <a class="nx-t" href="logbook.html" data-cur="read">then write<br>it all down. <b>→</b></a>
+      <p class="nx-s">or come and count with us: every saturday, two places on the boat. <a href="dive.html" data-cur="come down">join a survey dive</a>.</p>
+      <div class="strip nx-strip" aria-hidden="true">
+        <div class="row" data-mq="40"><span>LOGBOOK   №(04)   214 DIVES   37 M   3 NIGHTS OF SPAWNING   ISOBATH   石垣   24°20′N   </span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <div class="ft-top mono"><span>©ISOBATH</span><span>ISHIGAKI OCEAN INSTITUTE 3/6</span></div>
+    <div class="ft-mid">
+      <p class="ft-big">ISOBATH<span class="jp">等深線</span></p>
+      <p class="ft-poem jp" aria-hidden="true"><span>海</span><span>は</span><span>線</span><span>で</span><span>で</span><span>き</span><span>て</span><span>い</span><span>る</span></p>
+      <p class="ft-tr mono">the sea is made of lines.</p>
+    </div>
+    <div class="ft-cols mono">
+      <div><b>(01) find us</b><p>白保 shiraho, ishigaki-shi<br>okinawa, japan<br>24°20′N 124°09′E</p></div>
+      <div><b>(02) open</b><p>tue–sun · 09:00–17:00<br>closed when the sea is closed</p></div>
+      <div><b>(03) write</b><p>hello@isobath.jp<br>@isobath.ishigaki</p></div>
+      <div><b>(04) pages</b><p><a href="index.html">home</a> · <a href="reef.html">reef</a> · <a href="logbook.html">logbook</a><br><a href="dive.html">dive</a> · <a href="visit.html">visit</a></p></div>
+    </div>
+    <div class="ft-bot mono"><span>LUCKILY<br>THE SEA IS STILL HERE · ©2026 ISOBATH. all lines reserved.</span></div>
+    <p class="ft-sign">ghostly.grl <i>♥</i></p>
+  </footer>
+
+  <div class="toast mono" aria-live="polite"></div>
+  <div class="flood" aria-hidden="true"><p>you went too deep.<br><span class="mono">surfacing · <b>3</b></span></p></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/census.js"></script>
+</body>
+</html>
+<!--
+     №001 ─   №002 ─   №003 ─
+        ─ №004    ─ №005           /\_/\
+     №006 ─  ─ №007  ─ №008       ( o.o )   the cat counted
+        №009 ─   №010 ─            > ^ <    one fish. it ate it.
+                                   (")_(")
+   ┌─┐┬ ┬┌─┐┌─┐┌┬┐┬ ┬ ┬  ┌─┐┬─┐┬
+   │ ┬├─┤│ │└─┐ │ │ └┬┘  │ ┬├┬┘│
+   └─┘┴ ┴└─┘└─┘ ┴ ┴─┘┴ o └─┘┴└─┴─┘ ♥
+
+   ISOBATH 等深線 · census · every fish gets a number.
+-->

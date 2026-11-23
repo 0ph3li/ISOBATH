@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  ISOBATH 等深線 — ishigaki ocean institute
+  dive · come down, every saturday, two places
+
+  the surface is a line; scroll and the water closes over you.
+  then a saturday hour by hour, what to bring (nothing),
+  and a place on the boat.
+
+  concept, design & code by ghostly.grl ♥
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DIVE — ISOBATH 等深線 · come down with us</title>
+<meta name="description" content="every saturday isobath takes two people out on a survey dive in sekisei lagoon. you count, we write it down, and your line goes on the map. free.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Big+Shoulders+Stencil+Display:wght@700;800;900&family=Silkscreen&family=Noto+Sans+JP:wght@400;500;700;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dive.css">
+</head>
+<body class="dive-p">
+
+  <!-- loader: a sounding. the line goes down until it touches the bottom -->
+  <div class="loader" aria-hidden="true">
+    <svg class="ld-lines" viewBox="-300 -300 600 600"></svg>
+    <p class="ld-k mono">sounding · 測深</p>
+    <p class="ld-n mono"><b>000.0</b> m</p>
+    <p class="ld-c mono">24°20′N 124°09′E · sekisei lagoon</p>
+    <div class="ld-strip"><span>ISOBATH ── DOC 05 ── DIVE ── 潜水 ── EVERY SATURDAY ── TWO PLACES ── ISOBATH ── DOC 05 ── DIVE ── 潜水 ──</span></div>
+  </div>
+
+  <div class="cur" aria-hidden="true"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="9"/><path d="M15 0v9M15 21v9M0 15h9M21 15h9"/></svg><span></span></div>
+
+  <!-- fixed chrome -->
+  <a class="tag" href="index.html" data-cur="surface">
+    <span class="tag-s">ISOBATH<br>START</span><b>24°20′N</b>
+  </a>
+  <nav class="nav" aria-label="main">
+    <a href="index.html" data-cur="home">HOME</a>
+    <a href="reef.html" data-cur="the map">REEF</a>
+    <a href="census.html" data-cur="count">CENSUS</a>
+    <a href="logbook.html" data-cur="read">LOGBOOK</a>
+    <a href="dive.html" data-cur="come down">DIVE</a>
+    <a href="visit.html" data-cur="find us">VISIT</a>
+  </nav>
+  <button class="mbtn mono" aria-label="menu">MENU</button>
+  <p class="side vt mono" aria-hidden="true"><b>潜水</b> DIVE · EVERY SATURDAY, TWO PLACES</p>
+  <div class="gauge mono" aria-hidden="true">
+    <span class="g-i"><i>01</i><i>05</i></span>
+    <span class="g-bar"><i></i></span>
+    <b class="g-d">−00.0</b><em>m</em>
+  </div>
+
+  <!-- the water bends what is under it -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="refract" x="-5%" y="-20%" width="110%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.03" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="22" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <main>
+
+    <!-- ═════════ 01 · COME DOWN · the surface (pinned) ═════════ -->
+    <section class="cd" id="surface" data-sec="01">
+      <div class="cd-air">
+        <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="cd-k mono" data-scramble>LAST, COME DOWN</p>
+        <p class="cd-s">every saturday we take two people out on a survey dive. you count, we write it down, and your line goes on the map with your name next to it.</p>
+        <h1 class="cd-t" aria-label="come down"><span>COME</span><span>DOWN</span></h1>
+        <p class="cd-air-n mono">above · air · 1 atm</p>
+      </div>
+      <div class="cd-water" aria-hidden="true">
+        <div class="cd-bub"></div>
+        <p class="cd-t cd-t2"><span>COME</span><span>DOWN</span></p>
+        <p class="cd-w-n mono">below · sea · <b>1.0</b> atm</p>
+        <p class="cd-w-s mono">two places · every saturday · free</p>
+      </div>
+      <svg class="cd-line" aria-hidden="true"><path/></svg>
+      <p class="cd-hint mono">move the water · scroll to go under</p>
+    </section>
+
+    <!-- ═════════ 02 · A SATURDAY · hour by hour (pinned, sideways) ═════════ -->
+    <section class="sat" id="saturday" data-sec="02">
+      <div class="sat-stage">
+        <div class="sat-clock pix" aria-hidden="true"><b>06:45</b><span>SAT</span></div>
+        <p class="sat-k mono">A SATURDAY WITH US</p>
+        <div class="sat-track">
+          <article class="hr" data-t="06:45">
+            <p class="hr-t pix">06:45</p><h3>shiraho port</h3><p>we meet at the end of the pier. the sea is still flat and the colour of milk. coffee in a thermos.</p>
+            <div class="slot hr-ph" data-tone="deep" data-img="DIVE/t1.jpg" data-note="a small port at dawn, calm water, boats"></div>
+          </article>
+          <article class="hr" data-t="07:30">
+            <p class="hr-t pix">07:30</p><h3>the boat leaves</h3><p>twenty minutes out to the reef. the captain doesn’t talk until he has seen the water.</p>
+            <div class="slot hr-ph" data-tone="deep" data-img="DIVE/t2.jpg" data-note="a boat on the open sea, wake behind it"></div>
+          </article>
+          <article class="hr hr-txt" data-t="08:10">
+            <p class="hr-t pix">08:10</p><h3>you learn eight fish</h3><p>on the boat, with cards. the butterflyfish, the parrotfish, the one we want to go down. you’ll be surprised how fast you learn.</p>
+            <ol class="hr-list mono"><li>butterflyfish</li><li>parrotfish</li><li>humphead wrasse</li><li>coral grouper</li><li>chromis</li><li>giant clam</li><li>crown-of-thorns</li><li>green turtle</li></ol>
+          </article>
+          <article class="hr" data-t="08:40">
+            <p class="hr-t pix">08:40</p><h3>first dive · the belt</h3><p>fifty metres of tape at −8 m. you swim on the left, we swim on the right. you count, the pencil writes.</p>
+            <div class="slot hr-ph" data-tone="deep" data-img="DIVE/t3.jpg" data-note="divers counting fish over the reef"></div>
+          </article>
+          <article class="hr" data-t="09:50">
+            <p class="hr-t pix">09:50</p><h3>surface interval</h3><p>an hour on the boat to let the nitrogen go. tea, rice balls, and we copy the slates into the logbook.</p>
+            <div class="slot hr-ph" data-tone="deep" data-img="DIVE/t4.jpg" data-note="people resting on a boat deck, wet hair, sea around"></div>
+          </article>
+          <article class="hr" data-t="10:40">
+            <p class="hr-t pix">10:40</p><h3>second dive · the coral</h3><p>a point every fifty centimetres. coral, white coral, dead coral, sand. you’ll never look at a reef the same way.</p>
+            <div class="slot hr-ph" data-tone="deep" data-img="DIVE/t5.jpg" data-note="coral reef close, light from above"></div>
+          </article>
+          <article class="hr hr-txt hr-end" data-t="12:30">
+            <p class="hr-t pix">12:30</p><h3>your line</h3><p>back at the institute your numbers go on the map, and your name next to them. it stays there. next year someone will swim your line again.</p>
+            <a class="btn" href="#book" data-magnetic data-cur="book"><span>book a saturday</span><b>↓</b></a>
+          </article>
+        </div>
+        <div class="sat-bar" aria-hidden="true"><i></i></div>
+      </div>
+    </section>
+
+    <!-- ═════════ 03 · WHAT TO BRING · nothing ═════════ -->
+    <section class="bring" id="bring" data-sec="03">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="kick mono br-k" data-scramble>WHAT TO BRING</p>
+      <h2 class="br-t">nothing.<br><s>almost.</s></h2>
+      <div class="br-cols mono">
+        <div class="br-c">
+          <p class="br-h">WE BRING</p>
+          <ul><li>the boat, and the captain</li><li>tanks, weights, a 3 mm wetsuit</li><li>the slate and the pencil</li><li>the tape, fifty metres</li><li>tea, rice balls</li><li>the eight fish cards</li></ul>
+        </div>
+        <div class="br-c">
+          <p class="br-h">YOU BRING</p>
+          <ul><li>an open water licence (or come snorkel: the moat is two metres deep)</li><li>a towel</li><li>reef-safe sunscreen, or none</li><li>twelve years or more</li><li>patience with the captain</li></ul>
+        </div>
+        <div class="br-c br-price">
+          <p class="br-h">IT COSTS</p>
+          <p class="br-big pix">¥0</p>
+          <p>you pay in fish. every number you write down is one we didn’t have.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 04 · BOOK · a place on the boat ═════════ -->
+    <section class="book" id="book" data-sec="04">
+      <div class="bk-left">
+        <p class="kick mono" data-scramble>TWO PLACES</p>
+        <h2 class="bk-t">pick a saturday.</h2>
+        <form class="bk-f mono" autocomplete="off">
+          <div class="bk-days" role="radiogroup" aria-label="saturday"></div>
+          <div class="bk-lv" role="radiogroup" aria-label="how">
+            <label><input type="radio" name="lv" value="diver" checked><span>diver<em>licence, −8 m, the belt</em></span></label>
+            <label><input type="radio" name="lv" value="snorkel"><span>snorkeler<em>no licence, the moat, the sea grass</em></span></label>
+          </div>
+          <label class="bk-name">your name, for the map <input class="bk-in" maxlength="28" required placeholder="as it should appear next to your line"></label>
+          <button class="btn bk-go" type="submit" data-magnetic data-cur="board"><span>take a place</span><b>↓</b></button>
+          <p class="bk-small">this is a concept site: nothing is sent anywhere, the place stays in this browser.</p>
+        </form>
+      </div>
+      <div class="bk-right">
+        <div class="slate2 mono" aria-live="polite">
+          <p class="s2-h"><span>ISOBATH · BOARDING SLATE</span><span class="s2-no">№ —</span></p>
+          <p class="s2-name">your name here</p>
+          <dl>
+            <div><dt>day</dt><dd class="s2-day">saturday —</dd></div>
+            <div><dt>meet</dt><dd>06:45 · shiraho port, end of the pier</dd></div>
+            <div><dt>boat</dt><dd>ISOBATH-2 · captain oshiro</dd></div>
+            <div><dt>you</dt><dd class="s2-lv">—</dd></div>
+            <div><dt>your line</dt><dd class="s2-line">—</dd></div>
+          </dl>
+          <p class="s2-pen">written in pencil · it works underwater</p>
+          <button class="s2-x" type="button" data-cur="cancel">give the place back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 05 · NEXT · find us ═════════ -->
+    <section class="next" id="next" data-sec="05">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="nx-k mono">NEXT PAGE</p>
+      <a class="nx-t" href="visit.html" data-cur="find us">or just come<br>and say hello. <b>→</b></a>
+      <div class="strip nx-strip" aria-hidden="true">
+        <div class="row" data-mq="40"><span>VISIT   №(06)   白保 SHIRAHO   TUE–SUN 09:00–17:00   CLOSED WHEN THE SEA IS CLOSED   ISOBATH   石垣   </span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <div class="ft-top mono"><span>©ISOBATH</span><span>ISHIGAKI OCEAN INSTITUTE 5/6</span></div>
+    <div class="ft-mid">
+      <p class="ft-big">ISOBATH<span class="jp">等深線</span></p>
+      <p class="ft-poem jp" aria-hidden="true"><span>海</span><span>は</span><span>線</span><span>で</span><span>で</span><span>き</span><span>て</span><span>い</span><span>る</span></p>
+      <p class="ft-tr mono">the sea is made of lines.</p>
+    </div>
+    <div class="ft-cols mono">
+      <div><b>(01) find us</b><p>白保 shiraho, ishigaki-shi<br>okinawa, japan<br>24°20′N 124°09′E</p></div>
+      <div><b>(02) open</b><p>tue–sun · 09:00–17:00<br>closed when the sea is closed</p></div>
+      <div><b>(03) write</b><p>hello@isobath.jp<br>@isobath.ishigaki</p></div>
+      <div><b>(04) pages</b><p><a href="index.html">home</a> · <a href="reef.html">reef</a> · <a href="census.html">census</a><br><a href="logbook.html">logbook</a> · <a href="visit.html">visit</a></p></div>
+    </div>
+    <div class="ft-bot mono"><span>LUCKILY<br>THE SEA IS STILL HERE · ©2026 ISOBATH. all lines reserved.</span></div>
+    <p class="ft-sign">ghostly.grl <i>♥</i></p>
+  </footer>
+
+  <div class="toast mono" aria-live="polite"></div>
+  <div class="flood" aria-hidden="true"><p>you went too deep.<br><span class="mono">surfacing · <b>3</b></span></p></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dive.js"></script>
+</body>
+</html>
+<!--
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   0 m
+         ○                                        /\_/\
+     ○        ○       you, going down            ( o.o )   the cat stays
+        ○                                         > ^ <    on the boat.
+   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   −8 m   (")_(")
+
+   ┌─┐┬ ┬┌─┐┌─┐┌┬┐┬ ┬ ┬  ┌─┐┬─┐┬
+   │ ┬├─┤│ │└─┐ │ │ └┬┘  │ ┬├┬┘│
+   └─┘┴ ┴└─┘└─┘ ┴ ┴─┘┴ o └─┘┴└─┴─┘ ♥
+
+   ISOBATH 等深線 · dive · come down.
+-->

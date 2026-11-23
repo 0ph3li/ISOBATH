@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  ISOBATH 等深線 — ishigaki ocean institute
+  home · a dive from 0 to −40 m, one line at a time
+
+  an isobath is a line that joins every point of the same depth.
+  we draw them by hand, one dive at a time.
+
+  concept, design & code by ghostly.grl ♥
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ISOBATH 等深線 — ishigaki ocean institute</title>
+<meta name="description" content="isobath, ishigaki ocean institute. we map the reef of sekisei lagoon one line of equal depth at a time, count every fish, and teach anyone who wants to look down.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Big+Shoulders+Stencil+Display:wght@700;800;900&family=Silkscreen&family=Noto+Sans+JP:wght@400;500;700;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body class="home">
+
+  <!-- loader: a sounding. the line goes down until it touches the bottom -->
+  <div class="loader" aria-hidden="true">
+    <svg class="ld-lines" viewBox="-300 -300 600 600"></svg>
+    <p class="ld-k mono">sounding · 測深</p>
+    <p class="ld-n mono"><b>000.0</b> m</p>
+    <p class="ld-c mono">24°20′N 124°09′E · sekisei lagoon</p>
+    <div class="ld-strip"><span>ISOBATH ── DOC 01 ── BOTTOM TOUCHED ── 等深線 ── ISHIGAKI 石垣島 ── ENTERING THE WATER ── ISOBATH ── DOC 01 ── BOTTOM TOUCHED ── 等深線 ──</span></div>
+  </div>
+
+  <div class="cur" aria-hidden="true"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="9"/><path d="M15 0v9M15 21v9M0 15h9M21 15h9"/></svg><span></span></div>
+
+  <!-- fixed chrome -->
+  <a class="tag" href="index.html" data-cur="surface">
+    <span class="tag-s">ISOBATH<br>START</span><b>24°20′N</b>
+  </a>
+  <nav class="nav" aria-label="main">
+    <a href="index.html" data-cur="home">HOME</a>
+    <a href="reef.html" data-cur="the map">REEF</a>
+    <a href="census.html" data-cur="count">CENSUS</a>
+    <a href="logbook.html" data-cur="read">LOGBOOK</a>
+    <a href="dive.html" data-cur="come down">DIVE</a>
+    <a href="visit.html" data-cur="find us">VISIT</a>
+  </nav>
+  <button class="mbtn mono" aria-label="menu">MENU</button>
+  <p class="side vt mono" aria-hidden="true"><b>等深線</b> ISOBATH · ISHIGAKI OCEAN INSTITUTE</p>
+  <div class="gauge mono" aria-hidden="true">
+    <span class="g-i"><i>01</i><i>08</i></span>
+    <span class="g-bar"><i></i></span>
+    <b class="g-d">−00.0</b><em>m</em>
+  </div>
+
+  <main>
+
+    <!-- ═════════ 01 · SURFACE · the strip and the drop ═════════ -->
+    <section class="hero" id="surface" data-sec="01">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="h-note">
+        <p class="kick mono" data-scramble>FIRST</p>
+        <p>an isobath is a line that joins every point of the same depth. we draw them by hand, one dive at a time.</p>
+      </div>
+      <div class="h-coord mono">
+        <p>石垣島 · ishigaki, okinawa</p>
+        <p>sekisei lagoon 石西礁湖</p>
+        <p>japan’s largest coral reef</p>
+      </div>
+
+      <div class="strip h-strip" aria-hidden="true">
+        <div class="row" data-mq="-38"><span>SHIRAHO ST., 56   DOC — 01   //*ISOBATH,   ©2026 白保   −12.0 M   }COUNT 0412   NIGHT DIVE   </span></div>
+        <div class="row" data-mq="30"><span>907-ISG   SURVEY.SURVEY.SURVEY.   &amp; HELIOPORA   &gt;&gt;   №(01)   TRANSECTS…   KUROSHIO 1.8 KN   </span></div>
+        <div class="row" data-mq="-46"><span>OCEAN INSTITUTE   石垣[.]JP   WORLD_REEFS   10/10   SPAWN 13/05/2026   VIS 30 M   </span></div>
+        <div class="row" data-mq="34"><span>KABIRA BAY   24°20′,45′   124°9′,87′   #CORAL   #MANTA   −40 M   SALINITY 34.6‰   </span></div>
+      </div>
+
+      <div class="drop h-drop" data-cur="a drop"><i class="shine"></i></div>
+      <div class="drop h-drop2"><i class="shine"></i></div>
+      <div class="drop h-drop3"><i class="shine"></i></div>
+
+      <h1 class="h-title" aria-label="isobath">
+        <span class="w">ISOBATH</span>
+        <span class="jp h-jp">等深線</span>
+      </h1>
+      <p class="h-sub">ishigaki ocean institute · we map the reef, count the fish,<br>and teach anyone who wants to look down.</p>
+      <div class="marks mono" aria-hidden="true">
+        <span><i>0 m</i><b>⊕</b></span><span><i>−1 m</i><b>⊕</b></span><span><i>−3 m</i><b>⊕</b></span><span><i>−8 m</i><b>⊕</b></span><span><i>−20 m</i><b>⊕</b></span><span><i>−40 m</i><b>⊕</b></span>
+      </div>
+    </section>
+
+    <!-- ═════════ 02 · DEPTH · the six zones (pinned) ═════════ -->
+    <section class="depth" id="depth" data-sec="02">
+      <div class="d-stage">
+        <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="d-top mono">
+          <span>SURFACE</span><span>REEF FLAT</span><span>CREST</span><span>SLOPE</span><span>WALL</span><span>BLUE</span>
+        </div>
+        <p class="d-vt vt mono" aria-hidden="true">DEPTH</p>
+        <div class="d-left">
+          <p class="kick mono d-ord">FIRST</p>
+          <p class="d-txt">the light is all here. you can stand up and still be in the sea.</p>
+        </div>
+        <canvas class="d-mesh" aria-hidden="true"></canvas>
+        <h2 class="d-word">SURFACE</h2>
+        <p class="d-num"><b>0</b><sup>m</sup></p>
+        <div class="d-right mono">
+          <p class="d-zone">ZONE OF LIGHT</p>
+          <p class="d-sub">RED GOES FIRST</p>
+        </div>
+        <div class="d-idx mono"><i>01</i><i>06</i></div>
+        <div class="d-bot mono">
+          <span><i>0 m</i><b>⊕</b></span><span><i>−1 m</i><b>⊕</b></span><span><i>−3 m</i><b>⊕</b></span><span><i>−8 m</i><b>⊕</b></span><span><i>−20 m</i><b>⊕</b></span><span><i>−40 m</i><b>⊕</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 03 · ARCHIVE · the island of lost colour ═════════ -->
+    <section class="arch" id="archive" data-sec="03">
+      <canvas class="a-ht" data-cur="don't touch" aria-hidden="true"></canvas>
+      <h2 class="a-t1 stencil">ARCHIVED:<br>ISLAND OF</h2>
+      <p class="a-jp1 jp">存档<br>石垣</p>
+      <h2 class="a-t2 stencil">LOST<br>COLOUR</h2>
+      <p class="a-jp2 jp">白化した島</p>
+
+      <div class="a-box a-b1 mono"><p>SEKISEI LAGOON <span>2016</span> <span class="b">石西礁湖</span></p><p>the summer the water stayed warm too long.</p><p>the coral spat out its colour and turned <span class="b">white</span>.</p></div>
+      <div class="a-box a-b2 mono"><p>白保 <span>SHIRAHO</span></p><p>blue coral, heliopora coerulea.</p><p>one of the largest colonies in the north pacific.</p></div>
+      <div class="a-box a-b3 mono"><p>HOW TO READ THIS MAP <span>→</span></p><p>each dot is one square metre of reef.</p><p>blue is alive. move over it and see what a hand does.</p></div>
+      <div class="a-tag a-t3 jp">海水</div>
+      <div class="a-tag a-t4 jp">珊瑚</div>
+      <div class="a-tag a-t5 jp">島嶼</div>
+      <div class="a-frame" aria-hidden="true"></div>
+      <p class="a-read mono" aria-live="polite"><b>0000</b> m² bleached by your hand · they come back slowly</p>
+    </section>
+
+    <!-- ═════════ 04 · CENSUS · every fish gets a number ═════════ -->
+    <section class="census" id="census" data-sec="04">
+      <div class="c-top">
+        <div class="slot c-ph" data-tone="sea" data-img="HOME/census.jpg" data-note="a school of fish seen from above, shallow turquoise water over sand, lots of small dark fish"></div>
+        <p class="c-corner c-l mono">another</p><p class="c-corner c-r mono">census</p>
+        <p class="cw cw1">(1) every</p><p class="cw cw2">(2) fish</p><p class="cw cw3">(3) gets</p><p class="cw cw4">(4) a</p><p class="cw cw5">(5) number</p>
+      </div>
+      <div class="c-bot" data-blue>
+        <svg class="c-net" aria-hidden="true"></svg>
+        <p class="cw cw6">(1) just</p><p class="cw cw7">(2) crossing</p><p class="cw cw8">(3) currents</p><p class="cw cw9">(4) in</p><p class="cw cw10">(5) each</p><p class="cw cw11">(6) other’s</p><p class="cw cw12">(7) paths</p>
+        <p class="c-cap mono">transect 07 · shiraho · 09:40 · 1,862 fish counted by two people with pencils</p>
+      </div>
+      <div class="c-boxes" aria-hidden="true"></div>
+    </section>
+
+    <!-- ═════════ 05 · DROP · one litre ═════════ -->
+    <section class="dropsec" id="drop" data-sec="05">
+      <div class="ds-txt">
+        <p class="ds-k mono">Liquid / Kuroshio<br><span>sample 0412 · 1 litre</span></p>
+        <h2 class="ds-big">one litre of the sea off shiraho holds more lives than ishigaki has people.</h2>
+        <div class="ds-foot mono"><span>drag the drops</span><span>× 50,000 plankton / litre</span><span>ishigaki · 49,000 people</span></div>
+      </div>
+      <div class="drop ds-d" style="--w:22vw;--x:8%;--y:6%" data-cur="drag"><i class="shine"></i></div>
+      <div class="drop ds-d" style="--w:12vw;--x:62%;--y:14%" data-cur="drag"><i class="shine"></i></div>
+      <div class="drop ds-d" style="--w:7vw;--x:48%;--y:4%" data-cur="drag"><i class="shine"></i></div>
+      <div class="drop ds-d" style="--w:16vw;--x:72%;--y:52%" data-cur="drag"><i class="shine"></i></div>
+      <div class="drop ds-d" style="--w:9vw;--x:30%;--y:62%" data-cur="drag"><i class="shine"></i></div>
+      <div class="drop ds-d" style="--w:5vw;--x:88%;--y:30%" data-cur="drag"><i class="shine"></i></div>
+    </section>
+
+    <!-- ═════════ 06 · SPECIES · a { } of { } ═════════ -->
+    <section class="species" id="species" data-sec="06">
+      <div class="sp-top">
+        <p class="sp-line">
+          a school {<span class="slot sp-s" data-tone="sea" data-img="HOME/sp-school.jpg" data-note="school of fish" data-cur="school"></span>} of
+          {<span class="slot sp-s" data-tone="sea" data-img="HOME/sp-parrot.jpg" data-note="parrotfish" data-cur="parrotfish"></span>} parrotfish drifts
+          {<span class="slot sp-s" data-tone="sea" data-img="HOME/sp-current.jpg" data-note="current, sunlight in water" data-cur="the current"></span>} over the
+          {<span class="slot sp-s" data-tone="sea" data-img="HOME/sp-bluecoral.jpg" data-note="blue coral" data-cur="blue coral"></span>} blue coral of shiraho,
+          and a {<span class="slot sp-s" data-tone="sea" data-img="HOME/sp-manta.jpg" data-note="manta ray" data-cur="manta"></span>} manta
+          turns {<span class="slot sp-s" data-tone="sea" data-img="HOME/sp-turtle.jpg" data-note="green turtle" data-cur="turtle"></span>} in the cleaning station.
+        </p>
+      </div>
+      <div class="sp-bot">
+        <div class="slot sp-ph" data-tone="deep" data-img="HOME/species.jpg" data-note="looking up from underwater: blue water and many reef fish against the light"></div>
+        <div class="sp-holes" aria-hidden="true"></div>
+        <p class="sp-cap mono"><b>□</b> the white boxes are the ones we haven’t seen here since 2016. hover them.</p>
+        <p class="sp-name mono" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ═════════ 07 · LOGBOOK · what we brought back ═════════ -->
+    <section class="log" id="logbook" data-sec="07">
+      <div class="lg-left">
+        <div class="vf"><i></i><i></i><i></i><i></i>
+          <p class="pix lg-t">what we brought back this year</p>
+          <div class="slot lg-ph" data-tone="ghost" data-img="HOME/diver.jpg" data-note="a diver standing, full body, on white or very light background (it gets faded to pale blue)"></div>
+          <p class="lg-s pix">this page holds the numbers from our own logbook, 2026</p>
+          <p class="lg-s2 pix">(the full logbook is open to anyone, see logbook)</p>
+        </div>
+      </div>
+      <div class="lg-right">
+        <div class="lg-head slot" data-tone="ghost" data-img="HOME/profile.jpg" data-note="profile of a person with a short bob, side view, very light (faded blue)"></div>
+        <ul class="lg-n">
+          <li><b class="pix" data-n="214">0</b><p>dives logged by eleven people, two boats and one very patient captain. most of them before 9 am, when the water is still flat enough to read.</p></li>
+          <li><b class="pix" data-n="37" data-u=" m">0</b><p>the deepest isobath we drew this year, on the outer wall off shiraho. below it the reef stops and the blue begins.</p></li>
+          <li><b class="pix" data-n="1862">0</b><p>fish counted along one 50 m line in one morning. by hand, on a white slate, with a pencil that writes underwater.</p></li>
+          <li><b class="pix" data-n="3" data-u=" nights">0</b><p>of coral spawning, all a few nights after the full moon of may. the whole reef lets go at once, like snow falling up.</p></li>
+        </ul>
+        <p class="lg-pg pix">07</p>
+      </div>
+    </section>
+
+    <!-- ═════════ 08 · COME DOWN ═════════ -->
+    <section class="down" id="down" data-sec="08">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="dn-k mono" data-scramble>LAST</p>
+      <h2 class="dn-t">come draw<br>a line with us.</h2>
+      <p class="dn-s">every saturday we take two people out on a survey dive. you count, we write it down, and your line goes on the map with your name next to it.</p>
+      <a class="btn" href="dive.html" data-magnetic data-cur="sign up"><span>join a survey dive</span><b>↓</b></a>
+      <div class="strip dn-strip" aria-hidden="true">
+        <div class="row" data-mq="42"><span>NEXT DIVE SAT 28/11   07:30 SHIRAHO PORT   2 PLACES   //*BRING NOTHING   WE LEND THE SLATE   −8 M   </span></div>
+        <div class="row" data-mq="-36"><span>YOUR NAME ON THE MAP   №(02)   ISOBATH   石垣   24°20′N   124°09′E   #CENSUS   </span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <div class="ft-top mono"><span>©ISOBATH</span><span>ISHIGAKI OCEAN INSTITUTE 1/1</span></div>
+    <div class="ft-mid">
+      <p class="ft-big">ISOBATH<span class="jp">等深線</span></p>
+      <p class="ft-poem jp" aria-hidden="true"><span>海</span><span>は</span><span>線</span><span>で</span><span>で</span><span>き</span><span>て</span><span>い</span><span>る</span></p>
+      <p class="ft-tr mono">the sea is made of lines.</p>
+    </div>
+    <div class="ft-cols mono">
+      <div><b>(01) find us</b><p>白保 shiraho, ishigaki-shi<br>okinawa, japan<br>24°20′N 124°09′E</p></div>
+      <div><b>(02) open</b><p>tue–sun · 09:00–17:00<br>closed when the sea is closed</p></div>
+      <div><b>(03) write</b><p>hello@isobath.jp<br>@isobath.ishigaki</p></div>
+      <div><b>(04) pages</b><p><a href="reef.html">reef</a> · <a href="census.html">census</a> · <a href="logbook.html">logbook</a><br><a href="dive.html">dive</a> · <a href="visit.html">visit</a></p></div>
+    </div>
+    <div class="ft-bot mono"><span>LUCKILY<br>THE SEA IS STILL HERE · ©2026 ISOBATH. all lines reserved.</span></div>
+    <p class="ft-sign">ghostly.grl <i>♥</i></p>
+  </footer>
+
+  <div class="toast mono" aria-live="polite"></div>
+  <div class="flood" aria-hidden="true"><p>you went too deep.<br><span class="mono">surfacing · <b>3</b></span></p></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
+<!--
+            ~  ~   ~    ~   ~  ~
+         .~~~~~~~~~~~~~~~~~~~~~~~~.
+        (   ─ ─ ─  −3 m  ─ ─ ─     )        /\_/\
+         ( ─ ─ ─  −8 m  ─ ─ ─ ─   )        ( o.o )   the cat does not dive.
+          (  ─ ─  −20 m  ─ ─     )          > ^ <    it waits on the boat.
+            ( ─ ─ −40 m ─ ─  )             (")_(")
+              '~~~~~~~~~~~'
+
+   ┌─┐┬ ┬┌─┐┌─┐┌┬┐┬ ┬ ┬  ┌─┐┬─┐┬
+   │ ┬├─┤│ │└─┐ │ │ └┬┘  │ ┬├┬┘│
+   └─┘┴ ┴└─┘└─┘ ┴ ┴─┘┴ o └─┘┴└─┴─┘ ♥
+
+   ISOBATH 等深線 · ishigaki · the sea is made of lines.
+-->

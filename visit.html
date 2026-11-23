@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  ISOBATH 等深線 — ishigaki ocean institute
+  visit · find us
+
+  how far you are, and which way. the travel times drawn as
+  isobaths (an isochrone is an isobath of time). today's tide,
+  the house, the address. then back to the surface.
+
+  concept, design & code by ghostly.grl ♥
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VISIT — ISOBATH 等深線 · find us in shiraho</title>
+<meta name="description" content="isobath, ishigaki ocean institute: shiraho, ishigaki, okinawa. ten minutes from the airport, open tuesday to sunday, closed when the sea is closed.">
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Big+Shoulders+Stencil+Display:wght@700;800;900&family=Silkscreen&family=Noto+Sans+JP:wght@400;500;700;900&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/visit.css">
+</head>
+<body class="visit-p">
+
+  <!-- loader: a sounding. the line goes down until it touches the bottom -->
+  <div class="loader" aria-hidden="true">
+    <svg class="ld-lines" viewBox="-300 -300 600 600"></svg>
+    <p class="ld-k mono">sounding · 測深</p>
+    <p class="ld-n mono"><b>000.0</b> m</p>
+    <p class="ld-c mono">24°20′N 124°09′E · sekisei lagoon</p>
+    <div class="ld-strip"><span>ISOBATH ── DOC 06 ── VISIT ── 白保 SHIRAHO ── FIND US ── ISOBATH ── DOC 06 ── VISIT ── 白保 SHIRAHO ──</span></div>
+  </div>
+
+  <div class="cur" aria-hidden="true"><svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="9"/><path d="M15 0v9M15 21v9M0 15h9M21 15h9"/></svg><span></span></div>
+
+  <!-- fixed chrome -->
+  <a class="tag" href="index.html" data-cur="surface">
+    <span class="tag-s">ISOBATH<br>START</span><b>24°20′N</b>
+  </a>
+  <nav class="nav" aria-label="main">
+    <a href="index.html" data-cur="home">HOME</a>
+    <a href="reef.html" data-cur="the map">REEF</a>
+    <a href="census.html" data-cur="count">CENSUS</a>
+    <a href="logbook.html" data-cur="read">LOGBOOK</a>
+    <a href="dive.html" data-cur="come down">DIVE</a>
+    <a href="visit.html" data-cur="find us">VISIT</a>
+  </nav>
+  <button class="mbtn mono" aria-label="menu">MENU</button>
+  <p class="side vt mono" aria-hidden="true"><b>白保</b> VISIT · SHIRAHO, ISHIGAKI</p>
+  <div class="gauge mono" aria-hidden="true">
+    <span class="g-i"><i>01</i><i>05</i></span>
+    <span class="g-bar"><i></i></span>
+    <b class="g-d">−00.0</b><em>m</em>
+  </div>
+
+  <main>
+
+    <!-- ═════════ 01 · FIND US · how far, which way ═════════ -->
+    <section class="fu" id="find" data-sec="01">
+      <svg class="fu-iso" aria-hidden="true" viewBox="-500 -500 1000 1000" preserveAspectRatio="xMidYMid slice"></svg>
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="fu-k mono" data-scramble>FROM WHERE YOU ARE</p>
+      <h1 class="fu-t" aria-label="find us"><span>FIND</span><span>US</span></h1>
+      <div class="fu-comp" aria-hidden="true">
+        <svg viewBox="-160 -160 320 320"><g class="fu-ticks"></g><g class="fu-needle"><path d="M0 -128 L7 0 L0 18 L-7 0 Z"/><circle r="4"/></g></svg>
+        <p class="fu-deg mono"><b>000°</b> to ishigaki</p>
+      </div>
+      <div class="fu-data mono">
+        <label class="fu-from">from
+          <select class="fu-sel" data-cur="change city"></select>
+        </label>
+        <p class="fu-km pix"><b>0</b> km</p>
+        <ul class="fu-ways">
+          <li><span>by plane</span><b class="w-plane">—</b></li>
+          <li><span>swimming, 3 km/h</span><b class="w-swim">—</b></li>
+          <li><span>drifting on the kuroshio</span><b class="w-drift">—</b></li>
+        </ul>
+        <button class="fu-geo" type="button" data-cur="ask the browser">use where i really am</button>
+        <p class="fu-note">your position never leaves this page.</p>
+      </div>
+    </section>
+
+    <!-- ═════════ 02 · ISOCHRONES · isobaths of time ═════════ -->
+    <section class="ic" id="time" data-sec="02" data-blue>
+      <div class="ic-head">
+        <p class="kick mono" data-scramble>ISOCHRONES</p>
+        <h2 class="ic-t">an isochrone<br>is an isobath<br>of time.</h2>
+        <p class="ic-s">each line joins the places that are the same time away from our door. the closer the lines, the faster the trip.</p>
+      </div>
+      <svg class="ic-svg" viewBox="-520 -330 1040 660" aria-label="travel times to shiraho, drawn as contour lines"></svg>
+      <ol class="ic-list mono"></ol>
+    </section>
+
+    <!-- ═════════ 03 · TODAY · open, tide ═════════ -->
+    <section class="td" id="today" data-sec="03">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="td-now">
+        <p class="kick mono">IN SHIRAHO NOW</p>
+        <p class="td-clock pix"><b>00:00</b><span>JST</span></p>
+        <p class="td-open mono"><i></i><span>—</span></p>
+        <p class="td-hours mono">tue–sun · 09:00–17:00 · monday closed<br>closed when the sea is closed (typhoon flag at the door)</p>
+      </div>
+      <div class="td-tide">
+        <p class="kick mono">TODAY’S TIDE · SHIRAHO</p>
+        <svg class="td-svg" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-label="today's tide"></svg>
+        <div class="td-x mono" aria-hidden="true"><span>00</span><span>03</span><span>06</span><span>09</span><span>12</span><span>15</span><span>18</span><span>21</span><span>24</span></div>
+        <p class="td-say"></p>
+      </div>
+    </section>
+
+    <!-- ═════════ 04 · THE HOUSE ═════════ -->
+    <section class="hs" id="house" data-sec="04">
+      <div class="hs-head">
+        <p class="kick mono" data-scramble>THE HOUSE</p>
+        <h2 class="hs-t">a stone house<br>at the end of the road.</h2>
+      </div>
+      <div class="hs-row">
+        <figure class="hs-f" data-cur="the house">
+          <div class="slot hs-ph" data-tone="ghost" data-img="VISIT/house.jpg" data-note="a small white house by the sea, okinawa"></div>
+          <figcaption class="mono"><b>01</b> the house · a coral-stone wall, a red roof, the sea behind. walk in, shoes off.</figcaption>
+        </figure>
+        <figure class="hs-f" data-cur="the map room">
+          <div class="slot hs-ph" data-tone="ghost" data-img="VISIT/maproom.jpg" data-note="a big sea chart on a table, papers, light from a window"></div>
+          <figcaption class="mono"><b>02</b> the map room · every line we ever drew, on one table, under glass.</figcaption>
+        </figure>
+        <figure class="hs-f" data-cur="the beach">
+          <div class="slot hs-ph" data-tone="ghost" data-img="VISIT/shiraho.jpg" data-note="shiraho beach, shallow water, reef flat at low tide"></div>
+          <figcaption class="mono"><b>03</b> the beach · cross the road and you’re in the moat. at low tide you can walk to the reef.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ═════════ 05 · THE ADDRESS · and back up ═════════ -->
+    <section class="ad" id="address" data-sec="05">
+      <div class="cols" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ad-card mono">
+        <p class="ad-h">ISOBATH · ISHIGAKI OCEAN INSTITUTE</p>
+        <p class="ad-jp jp">〒907-0242<br>沖縄県石垣市白保<br>石垣海洋研究所 イソバス</p>
+        <p class="ad-en">shiraho, ishigaki-shi<br>okinawa 907-0242, japan<br>24°20′N 124°09′E</p>
+        <p class="ad-c">hello@isobath.jp · @isobath.ishigaki</p>
+      </div>
+      <div class="ad-please">
+        <p class="kick mono">PLEASE</p>
+        <ol class="mono">
+          <li>don’t touch the coral. not even the dead one.</li>
+          <li>don’t feed the fish. they have a job.</li>
+          <li>reef-safe sunscreen, or a shirt.</li>
+          <li>take your rubbish home. take one more.</li>
+          <li>if you see a crown-of-thorns, tell us.</li>
+        </ol>
+      </div>
+      <button class="up" type="button" data-cur="ascend"><span class="up-t">back to the surface</span><b class="pix up-n">−40.0</b><i>↑</i></button>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <div class="ft-top mono"><span>©ISOBATH</span><span>ISHIGAKI OCEAN INSTITUTE 6/6</span></div>
+    <div class="ft-mid">
+      <p class="ft-big">ISOBATH<span class="jp">等深線</span></p>
+      <p class="ft-poem jp" aria-hidden="true"><span>海</span><span>は</span><span>線</span><span>で</span><span>で</span><span>き</span><span>て</span><span>い</span><span>る</span></p>
+      <p class="ft-tr mono">the sea is made of lines.</p>
+    </div>
+    <div class="ft-cols mono">
+      <div><b>(01) find us</b><p>白保 shiraho, ishigaki-shi<br>okinawa, japan<br>24°20′N 124°09′E</p></div>
+      <div><b>(02) open</b><p>tue–sun · 09:00–17:00<br>closed when the sea is closed</p></div>
+      <div><b>(03) write</b><p>hello@isobath.jp<br>@isobath.ishigaki</p></div>
+      <div><b>(04) pages</b><p><a href="index.html">home</a> · <a href="reef.html">reef</a> · <a href="census.html">census</a><br><a href="logbook.html">logbook</a> · <a href="dive.html">dive</a></p></div>
+    </div>
+    <div class="ft-bot mono"><span>LUCKILY<br>THE SEA IS STILL HERE · ©2026 ISOBATH. all lines reserved.</span></div>
+    <p class="ft-sign">ghostly.grl <i>♥</i></p>
+  </footer>
+
+  <div class="toast mono" aria-live="polite"></div>
+  <div class="flood" aria-hidden="true"><p>you went too deep.<br><span class="mono">surfacing · <b>3</b></span></p></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/visit.js"></script>
+</body>
+</html>
+<!--
+              N
+              |
+      W ──── (◎) ──── E      shiraho, 24°20′N 124°09′E     /\_/\
+              |                                            ( o.o )   the cat knows
+              S                                             > ^ <    the way home.
+                                                           (")_(")
+   ┌─┐┬ ┬┌─┐┌─┐┌┬┐┬ ┬ ┬  ┌─┐┬─┐┬
+   │ ┬├─┤│ │└─┐ │ │ └┬┘  │ ┬├┬┘│
+   └─┘┴ ┴└─┘└─┘ ┴ ┴─┘┴ o └─┘┴└─┴─┘ ♥
+
+   ISOBATH 等深線 · visit · come back up slowly.
+-->
